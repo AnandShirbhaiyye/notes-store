@@ -1,8 +1,12 @@
 import React from 'react'
+import "./Note.css"
 
-function Note() {
+function Note({title, content}) {
   return (
-    <div>Note</div>
+    <div className='card-note'>
+      <h6 className='card-note-title'>{title}</h6>
+      <p className='card-note-content'>{content}</p>
+    </div>
   )
 }
 
