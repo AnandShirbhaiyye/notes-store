@@ -34,7 +34,17 @@ function Home() {
       title: "Note 6",
       content: "This is the content of note 6",
     },
+    {
+      title: "Note 7",
+      content: "This is the content of note 7",
+    },
+    {
+      title: "Note 8",
+      content: "This is the content of note 8",
+    },
   ]);
+
+ 
   return (
     <>
       <Navbar />
@@ -43,14 +53,23 @@ function Home() {
       </div>
       <div className="container">
         <div className="row">
-          <div className="col-md-6">
-            <div className="notes-container mb-3">
+          <div className="col-md-4">
+            <div className="notes-container mb-5">
               {notes.map((note, index) => {
                 return <Note title={note.title} content={note.content} />;
               })}
             </div>
           </div>
-          <div className="col-md-6">
+          <div className="col-md-4">
+            <div className="p-2 mt-5">
+              <img
+                src={headerImage}
+                alt=""
+                className="img-fluid mx-auto d-block "
+              />
+            </div>
+          </div>
+          <div className="col-md-4">
             <div className="p-2 mt-5">
               <img
                 src={headerImage}

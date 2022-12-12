@@ -17,3 +17,6 @@
   .card-note-content{
     margin: 0;
   }
+  .delete-button{
+    position: absolute;
+  }

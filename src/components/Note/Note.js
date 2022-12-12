@@ -6,6 +6,7 @@ function Note({title, content}) {
     <div className='card-note'>
       <h6 className='card-note-title'>{title}</h6>
       <p className='card-note-content'>{content}</p>
+      <span className='delete-button'>❌</span>
     </div>
   )
 }
