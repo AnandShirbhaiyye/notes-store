@@ -1,40 +1,68 @@
 import React from "react";
 import "./Home.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import Navbar from "../../components/Navbar/Navbar";
 import Note from "../../components/Note/Note";
 import boynotesapp from "./img/boy-notes-app.png";
 import girlnotesapp from "./img/girl-notes-app.png";
+import swal from 'sweetalert';
 
 const headerImage = Math.floor(Math.random() * 2) ? boynotesapp : girlnotesapp;
 
 function Home() {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+
   const [notes, setNotes] = useState([
     {
-      title: "Note 1",
-      content: "This is the content of note 1",
-    },
-    {
-      title: "Note 2",
-      content: "This is the content of note 2",
-    },
-    {
-      title: "Note 3",
-      content: "This is the content of note 3",
-    },
-    {
-      title: "Note 4",
-      content: "This is the content of note 4",
-    },
-    {
-      title: "Note 5",
-      content: "This is the content of note 5",
-    },
-  ]);
+      title: "Notes",
+      content: "You can add more notes to this list..."
+    }
+  ])
 
-  function addNote() {}
+  // triggers initially
+  useEffect(()=>{
+    const notes = localStorage.getItem("notes")
+    if(notes){
+      setNotes(JSON.parse(notes))
+    }
+  }, [])
+
+  // triggers when notes changes
+  useEffect(()=>{
+    if(notes.length > 1){
+      localStorage.setItem("notes", JSON.stringify(notes))
+    }
+  }, [notes])
+
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  
+
+  function addNote() {
+    const newNote = {
+      "title": title,
+      "content": content
+    }
+
+    if(title ==="" || content ===""){
+      swal({
+        title: "Error",
+        text: "Please fill all the fields",
+        icon: "error",
+      })
+      return;
+    }
+
+    setNotes([...notes, newNote])
+
+    swal({
+      title: "Note Added",
+      text: "Your note has been added to the list",
+      icon: "success",
+    })
+
+    setTitle("")
+    setContent("")
+  }
 
   return (
     <>
@@ -45,7 +73,7 @@ function Home() {
       <div className="container">
         <div className="row">
           <div className="col-md-4">
-            <div className="notes-container mt-4 p-3">
+            <div className="notes-container mt-5 p-3">
             <div className="add-show-title">
                   <h3 className="text-center">Show Notes📖</h3>
                 </div>
@@ -106,7 +134,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="footer-notes text-center mt-3">
+      <div className="footer-notes text-center mt-5">
         <h2>Thankyou..🙏</h2>
       </div>
     </>
