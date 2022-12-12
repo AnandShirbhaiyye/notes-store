@@ -8,6 +8,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
   }
   
   .card-note-title{
@@ -19,4 +20,11 @@
   }
   .delete-button{
     position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background-color: rgb(242, 162, 133);
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 50%;
   }
