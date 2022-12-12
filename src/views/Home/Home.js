@@ -2,6 +2,7 @@ import React from "react";
 import "./Home.css";
 import { useState, useEffect } from "react";
 // import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 import Note from "../../components/Note/Note";
 import boynotesapp from "./img/boy-notes-app.png";
 import girlnotesapp from "./img/girl-notes-app.png";
@@ -134,9 +135,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="footer-notes text-center mt-5">
-        <h2>Thankyou..🙏</h2>
-      </div>
+      <Footer/>
     </>
   );
 }
