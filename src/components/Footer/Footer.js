@@ -1,11 +1,12 @@
 import React from 'react';
 import './Footer.css';
+import {Link} from 'react-router-dom'
 
 function Footer() {
   return (
     <>
      <div className="footer-notes text-center mt-3">
-        <h2 className='footer-title'>Thankyou..🙏</h2>
+        <h5>Created By Anand | <Link to='https://github.com/AnandShirbhaiyye/notes-store.git'>Source Code</Link></h5>
       </div>
     </>
   )
